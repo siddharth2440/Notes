@@ -1,0 +1,42 @@
+<section>
+    <% if (countTotalNumberOfNotes==0) { %>
+        <div class="text-white flex items-center justify-between px-3 pt-[1.2rem]">
+            <div class="flex items-center justify-between gap-1">
+                <img src="<%-profileImage%>" alt="userImage" class="h-[1.3rem] w-auto rounded-xl">
+                <h1 class="capitalize font-[400] text-[1rem]">Hey, <span class="text-[0.9rem] text-[#e5ff39]"><%-firstName %><%-lastName %></span></h1>
+            </div>
+            <a href="/dashboard/<%-id%>/add" class="text-blue-100 border-blue-700 py-1 px-2 rounded-sm bg-[#303030] shadow-md">+New Note</a>
+        </div>
+
+        <div class="pt-[3rem] flex items-center  gap-[4rem]">
+            <div class="image">
+                <img src="/assets/human-3.svg" alt="">
+            </div>
+            <div class="promotingToWrite text-[#e7e7e0] py-1 px-2 flex flex-col gap-2 items-center justify-center self-start mt-[6rem]">
+                <h1 class="text-[2.3rem] font-[600] tracking-wide">Okay...</h1>
+                <p class="text-[1rem] tracking-loose text-[#fff820]">Let's Start with Your First Note!</p>
+                <a href="/dashboard/<%-id %>/add" class="text-blue-100 border-blue-700 mt-3 py-1 px-2 rounded-sm bg-[#303030] shadow-md">Create One!</a>
+            </div>
+        </div>
+    <% }else{ %>
+        <div class="flex items-center justify-between">
+            <h1 class="text-white flex items-center justify-start gap-2 pt-3"><span><img src="<%-profileImage %>" class="h-[2.1rem] rounded-[1.2rem]" alt=""></span> <span class="capitalize font-[400] text-[1rem] text-[#e5ff39]"><%-firstName %> <%- lastName %></span> </h1>
+            <a href="/dashboard/add" class="text-blue-100 border-blue-700 py-1 px-2 rounded-sm bg-[#303030] shadow-md">+New Note</a>
+        </div>
+        <div class="w-full min-h-[80vh] grid grid-cols-4 gap-4 px-3 py-2 pt-9">
+            <% bookTitleWithUserName.forEach(element => { %>
+                <a href="/dashboard/<%-element._id %>" class="border px-3 py-2 leading-relaxed rounded-br-2xl rounded-tl-2xl">
+                    <div class="title text-[#AB47BC] text-[0.8rem] text-center font-[400]">
+                        <%-element.title%>    
+                    </div>
+                    <div class="descrip text-white text-[0.7rem]">
+                        <%-element.body %>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+
+    <% } %>
+</section>
+
+

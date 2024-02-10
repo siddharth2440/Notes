@@ -1,0 +1,1 @@
+// alert('Customize and create your OWN notes')

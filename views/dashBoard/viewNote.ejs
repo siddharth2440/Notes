@@ -1,0 +1,27 @@
+<section class="text-[#fff]">
+    <div class="div pt-[1.3rem]">
+        <div class="upper flex items-center">
+            <a href="/dashboard" class="text-blue-400 font-[300] text-[0.8rem] underline">Dashboard</a>
+            <span class="mx-1"> / </span>
+            <p href="" class="text-blue-400 font-[300] text-[0.8rem] capitalize"><%-NoteByUser[0].title %></a>
+        </div>
+        <div class="flex px-4 py-5 items-center justify-between">
+            <h1 class="text-[1.7rem] opacity-80 tracking-tighter">View Note</h1>
+            <form action="/dashboard/<%-NoteByUser[0]._id%>/delete?_method=DELETE" method="POST">
+                <button type="submit" class="bg-[#FD6562] py-1 px-2 rounded-lg"><i class="ri-delete-bin-7-fill"></i>Delete</button>
+            </form>
+        </div>
+        <form action="/dashboard/<%-NoteByUser[0]._id%>/?_method=PUT" method="POST" class="flex flex-col items-center justify-between w-[80%] m-auto mt-3">
+            <div class="w-[100%] m-auto px-2 py-1">
+                <input type="text" class="w-[90%] text-[#0b0f1d] bg-[#fff3f3] px-2 py-1 rounded-[0.3rem]" id="title" name="title" value="<%-NoteByUser[0].title %>" placeholder="Title">
+            </div>
+          
+            <div class="w-[100%] m-auto px-2 py-1">
+                <textarea class="w-[90%] bg-[#fff3f3] text-[#0b0f1d] m-auto px-2 py-1 rounded-[0.3rem]" id="body" name="body" placeholder="Take a note..." rows="12"><%-NoteByUser[0].body%></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="bg-[#A6FF4D] py-1 px-2 text-[#0b0f1d] font-[600] rounded-[0.4rem]">Update</button>
+            </div>
+        </form>
+    </div>
+</section>
